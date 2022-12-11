@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>크래프톤 정글 커뮤니티</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="top_title">
+            <div id="logo">
+                <a href="/">
+                    <img id="logo_img" src="../static/images/logo.PNG" width="100" height="70">
+                </a>
+            </div>
+
+            <div id="top_nav">
+                <div id="bord_title">
+                    <a href="/" style="color: blue;"> 게시판 </a>
+                </div>
+
+                <div id="Reser_title">
+                    <a href="/reserve"> 예약 </a>
+                </div>
+
+                <div id="chat_title">
+                    <a href="#"> 채팅 </a>
+                </div>
+            </div>
+
+            <div id="pro">
+                <img id="profile" src="../static/images/profile.jpg" width="70" height="70">
+            </div>
+        </div>
+
+        <div id="body_text">
+            <div id="side">
+                <div id="total">
+                    <form action="/side_tag" method="post">
+                        {% if '전체' == check_tag %}
+                        <button id="searchTag_bt" name="board_side_tag" value="전체" type="sumit" style="color: blue;"> 전체
+                        </button>
+                        {% else %}
+                        <button id="searchTag_bt" name="board_side_tag" value="전체" type="sumit"> 전체 </button>
+                        {% endif %}
+                    </form>
+                </div>
+
+                <br>
+                <div id="tag1">
+                    <form action="/side_tag" method="post">
+                        {% if '공부' == check_tag %}
+                        <button id="searchTag_bt" name="board_side_tag" value="공부" type="sumit" style="color: blue;"> 공부
+                        </button>
+                        {% else %}
+                        <button id="searchTag_bt" name="board_side_tag" value="공부" type="sumit"> 공부 </button>
+                        {% endif %}
+                    </form>
+                </div>
+
+                <br>
+                <div id="tag2">
+                    <form action="/side_tag" method="post">
+                        {% if '운동' == check_tag %}
+                        <button id="searchTag_bt" name="board_side_tag" value="운동" type="sumit" style="color: blue;"> 운동
+                        </button>
+                        {% else %}
+                        <button id="searchTag_bt" name="board_side_tag" value="운동" type="sumit"> 운동 </button>
+                        {% endif %}
+                    </form>
+                </div>
+
+                <br>
+                <div id="tag3">
+                    <form action="/side_tag" method="post">
+                        {% if '맛집' == check_tag %}
+                        <button id="searchTag_bt" name="board_side_tag" value="맛집" type="sumit" style="color: blue;"> 맛집
+                        </button>
+                        {% else %}
+                        <button id="searchTag_bt" name="board_side_tag" value="맛집" type="sumit"> 맛집 </button>
+                        {% endif %}
+                    </form>
+                </div>
+                
+            </div>
+
+            <div id="main">
+                <div id="main_middle">
+                    <form action="/" method="post">
+                        <div id="main_table">
+                            {% if datas.collection.estimated_document_count() > 0 %}
+                            <table id="board_list" border="1">
+                                <thead>
+                                    <tr align="center">
+                                        <th width=100>태그</th>
+                                        <th width=470>제목</th>
+                                        <th width=150>작성자</th>
+                                        <th width=150>작성일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 반복되는 구간 -->
+                                    {% if 'None' == word_all %}
+                                    {% for data in datas %}
+                                    {% if '전체' == check_tag %}
+                                    <tr>
+                                        <td>{{data.tag}}</td>
+                                        <td>{{data.title}}</td>
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.date}}</td>
+                                    </tr>
+                                    {% else %}
+                                    {% for i in datas %}
+                                    {% if i.tag == check_tag %}
+                                    <tr>
+                                        <td>{{i.tag}}</td>
+                                        <td>{{i.title}}</td>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.date}}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% else %}
+                                    {% for j in search_all %}
+                                    <tr>
+                                        <td>{{j.tag}}</td>
+                                        <td>{{j.title}}</td>
+                                        <td>{{j.name}}</td>
+                                        <td>{{j.date}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <!-- 반복되는 구간 끝 -->
+                                </tbody>
+                            </table>
+                            <!-- 페이지네이션을 위한 코드 시작 -->
+                            {% if block_start - 1 > 0 %}
+                            <a href="{{url_for('board_list', page=block_start - 1)}}">[이전]</a>
+                            {% endif %}
+
+                            {% for i in range(block_start, block_end + 1)%}
+                            <!-- 데이터가 존재하지 않는 페이지는 화면에 나타내지 않기 위한 조건문 -->
+                            {% if i > last_page_num %}
+
+                            {% else %}
+                            {% if i == page %}
+                            <b>{{ i }}</b>
+                            {% else %}
+                            <a href="{{url_for('board_list', page=i, check_tag=check_tag)}}">{{ i }}</a>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if block_end < last_page_num %} <a href="{{url_for('board_list', page=block_end + 1)}}">
+                                [다음]</a>
+                            {% endif %}
+                            <!-- 페이지네이션을 위한 코드 끝 -->
+
+                            {% else %}
+                            <h3>데이터가 존재하지 않습니다.</h3>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+
+                <div id="main_footer">
+                    <div id="footer_in">
+                        <form action="/search" method="post">
+                            <input id="serch_in" type="text" placeholder="검색어를 입력하세요" size="50" name="search_word"
+                                style="float: left;">
+                            <button id="serch" onclick="window.location.href='/'" style="float: left;">검색하기</button>
+                        </form>
+
+                        <button id="board_add" onclick="window.location.href='/board_add'" style="float: left;">게시글
+                            등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

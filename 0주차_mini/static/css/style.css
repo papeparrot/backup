@@ -1,0 +1,225 @@
+/* all css */
+a {
+    text-decoration-line: none;
+    color: black;
+}
+
+.wrap {
+    width: 1000px;
+    margin: auto;
+    margin-top: 5px;
+}
+
+#top_title {
+    height: 70px;
+}
+
+#logo {
+    width: 100px;
+    height: 70px;
+    float: left;
+
+    border: 1px black solid;
+}
+
+#logo_img {
+    margin: 4px;
+    width: 90%;
+    height: 90%;
+    border-radius: 10%;
+}
+
+#top_nav {
+    width: 750px;
+    height: 70px;
+    float: left;
+
+    border: 1px black solid;
+}
+
+#bord_title {
+    float: left;
+    margin: 20px 90px 0px 90px;
+}
+
+#Reser_title {
+    float: left;
+    margin: 20px 90px 0px 90px;
+}
+
+#chat_title {
+    margin: 20px 90px 0px 90px;
+    float: left;
+}
+
+#pro {
+    width: 150px;
+    height: 70px;
+    float: left;
+
+    border: 1px black solid;
+}
+
+#profile {
+    margin: 4px;
+    width: 90%;
+    height: 90%;
+    border-radius: 100%;
+}
+
+#body_text {
+    height: 980px;
+    /* background-color: rgb(203, 203, 203); */
+}
+
+#side {
+    float: left;
+    height: 980px;
+    width: 100px;
+
+    border: 1px black solid;
+}
+
+#total {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#tag1 {
+    margin-left: 30px;
+}
+
+#tag2 {
+    margin-left: 30px;
+}
+
+#tag3 {
+    margin-left: 30px;
+}
+
+#board_list {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#main {
+    float: left;
+    width: 900px;
+    height: 980px;
+    border: 1px black solid;
+}
+
+
+#main_middle {
+    height: 880px;
+}
+
+/* -------------------------------------------------------------------- */
+/* index css */
+
+#main_table {
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 830px;
+    text-align: center;
+}
+
+#page_num {
+    width: 80px;
+    margin-top: 7px;
+    margin-left: 350px;
+    height: 50px;
+}
+
+#main_footer {
+    width: 898px;
+    height: 87px;
+    bottom: 15px;
+}
+
+#footer_in {
+    margin-top: 35px;
+    margin-left: 15%;
+}
+
+/* #serch_in { 
+    
+} */
+
+#serch {
+    margin-left: 10px;
+}
+
+#board_add {
+    margin-left: 20px;
+}
+
+#searchTag_bt {
+    border: none;
+    background-color: transparent;
+}
+
+/* -------------------------------------------------------------------- */
+/* board_add css */
+
+#main_in {
+    margin-top: 10px;
+    margin-left: 48px;
+    height: 830px;
+}
+
+#main_title {
+    margin-top: 20px;
+}
+
+#main_tag {
+    margin-top: 20px;
+    float: left;
+}
+
+#main_tag {
+    margin-top: 20px;
+    width: 200px;
+    float: left;
+}
+
+#main_text {
+    margin-top: 20px;
+    width: 800px;
+}
+
+#board_save {
+    width: 150px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 380px;
+}
+
+/* -------------------------------------------------------------------- */
+/* board_adit css */
+
+#board_edit {
+    width: 150px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+
+#board_del {
+    width: 150px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 160px;
+}
+
+/* -------------------------------------------------------------------- */
+/* calendar css */
+td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border: 2px;
+    border-color: #3333FF;
+    border-radius: 8px;
+}
